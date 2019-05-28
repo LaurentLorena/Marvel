@@ -4,11 +4,11 @@ import br.com.example.marvel.Env.Env
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class HttpRequest {
-    fun init() {
-        Retrofit.Builder()
-            .baseUrl(Env.baseUrl)
+class Retrofit {
+      val retrofit = Retrofit.Builder()
+            .baseUrl("https://gateway.marvel.com/v1/public/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-    }
+
+    fun heroService() = retrofit.create(HeroService::class.java)
 }

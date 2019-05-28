@@ -10,7 +10,7 @@ import br.com.example.marvel.Models.Hero
 import br.com.example.marvel.R
 import kotlinx.android.synthetic.main.itemlist_hero.view.*
 
-class HeroListAdapter(val heroes: List<Hero>, private val context: Context) : Adapter<HeroListAdapter.ViewHolder>() {
+class HeroListAdapter(val heroes: ArrayList<Hero>, private val context: Context) : Adapter<HeroListAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.itemlist_hero, parent, false)
@@ -32,7 +32,7 @@ class HeroListAdapter(val heroes: List<Hero>, private val context: Context) : Ad
 
         fun bindView(hero: Hero){
             val heroName = itemView.text_hero_name
-            heroName.text = "hero teste"
+            heroName.text = hero.name
         }
     }
 
